@@ -1,0 +1,133 @@
+﻿@model WebMVC.Models.LoginViewModel
+@{
+    Layout = null;
+}
+
+
+
+@*<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+
+    @Html.ActionLink("Register", "Register", "AccountConsumed", null, new { @class = "btn btn-secondary" })
+}
+*@
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url(https://inc42.com/wp-content/uploads/2019/12/Untitled-design-2019-12-09T080908.682.jpg);
+        background-size: auto;
+        font-family: sans-serif;
+    }
+
+    .loginBox {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        height: 420px;
+        padding: 70px 40px;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .user {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        top: calc(-100px/2);
+        left: calc(50% - 50px);
+    }
+
+    h2 {
+        margin: 0;
+        padding: 0 0 26px;
+        color: #ff8c00;
+        text-align: center;
+    }
+
+    .loginBox p {
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .loginBox input {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+        .loginBox input[type="email"],
+        .loginBox input[type="password"] {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+    ::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .loginBox input[type="submit"] {
+        border: none;
+        outline: none;
+        height: 40px;
+        color: #eee;
+        font-size: 16px;
+        background-color: #FF8C00;
+        cursor: pointer;
+        border-radius: 20px;
+        margin: 12px 0 18px;
+    }
+
+        .loginBox input[type="submit"]:hover {
+            background-color: #ff9719;
+            color: #fff;
+        }
+
+    .loginBox a {
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+</style>
+<div class="loginBox">
+   @* <img class="user" src="http://icons.iconarchive.com/icons/hopstarter/face-avatars/128/Male-Face-O1-icon.png">*@
+    <h2>Log In Here</h2>
+    <form method="post" action="@Url.Action("Login", "AccountConsumed")">
+        
+        <p>Email</p>
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <p>Password</p>
+        <input type="password" name="password" placeholder="Enter Password"  required>
+        <input type="submit" name="sign-in" value="Sign In">
+        
+    </form>
+</div>

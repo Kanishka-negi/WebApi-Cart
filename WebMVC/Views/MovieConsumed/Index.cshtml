@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WebMVC.Models.MovieViewModel>
+
+@{
+    Layout = "_Layout";
+}
+
+
+
+<h3 class="text-center">Recommended Movies</h3>
+
+    <div class="row">
+        @foreach (var movie in Model)
+        {
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="@movie.Logo" alt="Movie Logo" width="200" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span class="badge bg-success text-white" style="text-transform: uppercase;">@movie.Name</span>
+                        </h5>
+                        <h6 class="card-title">@movie.Description</h6>
+                        <p class="card-text"><b>Price:</b> @movie.Price</p>
+                        <p class="card-text"><b>Start Time:</b> @movie.StartDate</p>
+                        <p class="card-text"><b>End Time:</b> @movie.EndDate</p>
+                        <p class="card-text"><b>Category:</b> @movie.MovieCategory</p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text">
+                         @*   <form asp-controller="CartConsumed" asp-action="AddToCart" asp-method="post">
+    <input type="hidden" name="movieId" value="@movie.MovieId" />
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" id="quantity" value="1" min="1" />
+    <button type="submit">Add to Cart</button>
+    <input type="hidden" name="returnUrl" value="@Url.Action("Index", "MovieConsumed")" />
+</form>*@
+
+                           
+                            <form asp-controller="CartConsumed" asp-action="AddToCart" asp-method="post">
+                                <input type="hidden" name="movieId" value="@movie.MovieId" />
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" name="quantity" id="quantity" value="1" min="1" />
+                                <button type="submit">Add to Cart</button>
+                            </form>
+                         
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+
+
+
+
+
+
+
+@*<h2>Movie List</h2>
+
+<div class="row">
+    @foreach (var movie in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="@movie.Logo" alt="Movie Logo" width="200" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <span class="badge bg-success text-white" style="text-transform: uppercase;">@movie.Name</span>
+                    </h5>
+                    <h6 class="card-title">@movie.Description</h6>
+                    <p class="card-text"><b>Price:</b> @movie.Price</p>
+                    <p class="card-text"><b>Start Time:</b> @movie.StartDate</p>
+                    <p class="card-text"><b>End Time:</b> @movie.EndDate</p>
+                    <p class="card-text"><b>Category:</b> @movie.MovieCategory</p>
+                </div>
+                <div class="card-footer">
+                    <p class="card-text">
+                        <a href="@Url.Action("AddToCart", "MovieConsumed", new { movieId = movie.MovieId })" class="btn btn-success">
+                            <i class="bi bi-cart-plus"></i> Add to Cart (Price @movie.Price.ToString("c"))
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+*@

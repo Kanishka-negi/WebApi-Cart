@@ -1,0 +1,31 @@
+﻿@model WebMVC.Models.CartViewModel
+
+
+
+<h1>Cart</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Movie ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Totalprice</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>@Model.MovieId</td>
+            <td>@Model.Name</td>      
+            <td>@Model.Price</td>
+            <td>@Model.Quantity</td>
+            <td>@Model.TotalPrice</td>
+        </tr>
+    </tbody>
+</table>
+
+@Html.ActionLink("Back to Movies", "Index", "MovieConsumed")
+
+

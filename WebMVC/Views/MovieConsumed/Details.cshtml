@@ -1,0 +1,16 @@
+﻿@model MovieViewModel
+
+<h1>Movie Details</h1>
+
+<h3>@Model.Name</h3>
+<p>Price: @Model.Price</p>
+
+<form method="post" asp-action="AddToCart" asp-controller="Cart">
+    <input type="hidden" asp-for="MovieId" value="@Model.MovieId" />
+    <div class="form-group">
+        <label>Quantity:</label>
+        <input type="number" asp-for="Quantity" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add to Cart</button>
+    <a asp-action="Index" asp-controller="MovieConsumed" class="btn btn-secondary">Back to List</a>
+</form>
